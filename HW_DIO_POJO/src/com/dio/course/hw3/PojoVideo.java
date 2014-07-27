@@ -8,6 +8,7 @@ public class PojoVideo {
 	
 	
 	public PojoVideo(Quality eQuality, String sGenre, double dDuration) {
+        //local code review (vtegza): no need for super() @ 27.07.14
 		super();
 		this.eQuality = eQuality;
 		this.sGenre = sGenre;
@@ -67,6 +68,7 @@ public class PojoVideo {
 			return false;
 		return true;
 	}
+    //local code review (vtegza): use StringBuilder version of toString() @ 27.07.14
 	@Override
 	public String toString() {
 		return "PojoVideo [eQuality=" + eQuality + ", sGenre=" + sGenre

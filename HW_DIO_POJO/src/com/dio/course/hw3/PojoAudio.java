@@ -7,22 +7,29 @@ public class PojoAudio {
 	private String  sName;
 	private Quality eQuality;
 	private String sTag;
-	
-	
-	
-	public String merge(PojoAudio a_obj,PojoAudio v_obj)
+
+
+    //local code review (vtegza): I belive this method should be moved to different class and that class should implement Unite interface @ 27.07.14
+    public String merge(PojoAudio a_obj,PojoAudio v_obj)
 	{
-		
-		return  "Merge";		
+        //local code review (vtegza): no actual functionality @ 27.07.14
+        return  "Merge";		
 	}
 	public void testMerg()
 	{
-		assert(merge(new PojoAudio(12,"121212", Quality.HIGHT, "tag"),new PojoAudio(12,"121212", Quality.HIGHT, "tag")).equals("Merge"));
+        //local code review (vtegza): assertations should not only check logic, it also should explain what it do.. @ 27.07.14
+        PojoAudio firtAudio = new PojoAudio(12, "121212", Quality.HIGHT, "tag");
+        PojoAudio secoundAudion = new PojoAudio(12, "121212", Quality.HIGHT, "tag");
+        String hardCodedValue = "Merge";
+
+        String resultValue = merge(firtAudio, secoundAudion);
+        assert(resultValue.equals(hardCodedValue));
 	}
 	
 	public PojoAudio(double dDuration, String sName, Quality eQuality,
 			String sTag) {
-		super();
+        //local code review (vtegza): no need for super() @ 27.07.14
+        super();
 		this.dDuration = dDuration;
 		this.sName = sName;
 		this.eQuality = eQuality;
@@ -91,13 +98,16 @@ public class PojoAudio {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "PojoAudio [dDuration=" + dDuration + ", sName=" + sName
-				+ ", eQuality=" + eQuality + ", sTag Year=" + sTag + "]";
-	}
-	
-	
-	
-	
+
+    //local code review (vtegza): use StringBuilder version of toString() @ 27.07.14
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("PojoAudio{");
+        sb.append("dDuration=").append(dDuration);
+        sb.append(", sName='").append(sName).append('\'');
+        sb.append(", eQuality=").append(eQuality);
+        sb.append(", sTag='").append(sTag).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
